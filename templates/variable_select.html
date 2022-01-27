@@ -1,0 +1,32 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link src="stylesheet" href="style.css">
+  <script type="text/javascript">// <![CDATA[
+    function loading(){
+        $("#loading").show();
+        $("#content").hide();       
+    }
+// ]]></script>
+</head>
+
+<body>
+  <div id="loading"></div>
+  <div id="content">
+      <form action="http://localhost:5000/chosen_train" method="POST">
+        
+        <div>
+          <label>Variable:</label>
+          <select id="variable" name="variable" width="600px">
+          <option SELECTED value='0'>Choose the target variable</option>  
+          {% for x in vars %}
+            <option value= '{{ x }}'>{{x}}</option>
+          {% endfor %}
+        </select>
+         
+        </div>
+        
+        <div>
+          <input type="submit" value="Submit" onclick="loading();">
+        </div>
+      </form>
+    </div>
